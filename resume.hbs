@@ -44,7 +44,7 @@
             <a data-test="menu-toggle" class="menu-toggle" href="#"><span>Menu</span></a>
 
             <div class="logo">
-                <a href="index.html">Resume</a>
+                <a href="#resume">Resume</a>
             </div>
 
             <nav id="main-nav-wrap">
@@ -179,8 +179,8 @@
 
     <div class="row button-section">
         <div class="col-twelve">
-            <a href="#contact" title="Hire Me" class="button stroke smoothscroll">Hire Me</a>
-            <a href="#" title="Download CV" class="button button-primary">Download CV</a>
+            <a href="mailto:{{resume.basics.email}}" title="Hire Me" class="button stroke smoothscroll">Hire Me</a>
+            <a href="{{#resume.basics}}{{downloadUrl}}{{/resume.basics}}" title="Download resume" class="button button-primary">Download Resume</a>
         </div>
     </div>
 
@@ -231,6 +231,13 @@
                             <div class="timeline-content">
                                 <h4>{{name}}</h4>
                                 <p>{{#markdown}}{{summary}}{{/markdown}}</p>
+                                {{#if highlights}}
+                                    <ul>
+                                        {{#each highlights}}
+                                            <li>{{.}}</li>
+                                        {{/each}}
+                                    </ul>
+                                {{/if}}
                             </div>
 
                         </div> <!-- /timeline-block -->
@@ -365,7 +372,45 @@
         </div> <!-- /resume-timeline -->
     {{/if}}
 
+    {{#if resume.awards}}
+        <div class="row resume-timeline">
 
+            <div class="col-twelve resume-header">
+
+                <h2>Awards</h2>
+
+            </div> <!-- /resume-header -->
+
+            <div class="col-twelve">
+
+                <div class="timeline-wrap">
+
+                    {{#each resume.awards}}
+                        <div class="timeline-block">
+
+                            <div class="timeline-ico">
+                                <i class="fa fa-trophy"></i>
+                            </div>
+
+                            <div class="timeline-header">
+                                <h3>{{title}}</h3>
+                                <p>{{date date}}</p>
+                            </div>
+
+                            <div class="timeline-content">
+                                <h4>{{awarder}}</h4>
+                                <p>{{#markdown}}{{summary}}{{/markdown}}</p>
+                            </div>
+
+                        </div> <!-- /timeline-block -->
+                    {{/each}}
+
+                </div> <!-- /timeline-wrap -->
+
+            </div> <!-- /col-twelve -->
+
+        </div> <!-- /resume-timeline -->
+    {{/if}}
 </section> <!-- /features -->
 
 
@@ -1009,13 +1054,13 @@
             </ul>
 
         </div>
-
+{{!-- 
         <div class="col-six tab-full">
             <div class="copyright">
                 <span>© Copyright Kards 2016.</span>
                 <span>Design by <a href="http://www.styleshout.com/">styleshout</a></span>
             </div>
-        </div>
+        </div> --}}
 
         <div id="go-top">
             <a class="smoothscroll" title="Back to Top" href="#top"><i class="fa fa-long-arrow-up"></i></a>
