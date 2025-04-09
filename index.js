@@ -37,6 +37,14 @@ Handlebars.registerHelper('toLowerCase', function(str) {
 	return str.toLowerCase();
 });
 
+Handlebars.registerHelper('networkToFontAwesome', function(str) {
+	switch (str.toLowerCase()) {
+		case 'blog':
+			return 'commenting';
+	}
+	return str;
+});
+
 Handlebars.registerHelper('date', function(str) {
 	if (str) {
 		var m = moment(str);
