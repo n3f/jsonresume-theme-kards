@@ -2428,8 +2428,6 @@ input::-moz-focus-inner {
   margin: 6rem 0 3rem;
 }
 .skill-bars li {
-  height: 0.6rem;
-  background: #a1a1a1;
   width: 100%;
   margin-bottom: 6rem;
   padding: 0;
@@ -2533,6 +2531,18 @@ input::-moz-focus-inner {
 }
 .skill-bars li .percent100 {
   width: 100%;
+}
+.skill-bar {
+  width: 100%;
+  height: 0.25em;
+  background: #a1a1a1;
+}
+.skill-bars li p {
+  font-size: 0.8em;
+  white-space: nowrap;
+  font-family: "poppins-regular", sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 /** 
  * ===================================================================

@@ -166,11 +166,16 @@
                 <ul class="skill-bars">
                     {{#each resume.skills}}
                         <li>
-                            <div class="progress percent{{skillLevel level}}"><span>{{skillLevel level}}%</span></div>
+                            <div class="skill-bar">
+                                <div class="progress percent{{skillLevel level}}"><span>{{skillLevel level}}%</span></div>
+                            </div>
                             <strong>{{name}}</strong>
+                            {{#if keywords}}
+                            <!-- render this as a popover -->
+                            <p alt="{{join keywords ", "}}">{{join keywords ", "}}</p>
+                            {{/if}}
                         </li>
                     {{/each}}
-
                 </ul> <!-- /skill-bars -->
 
             </div>
@@ -238,47 +243,6 @@
                                         {{/each}}
                                     </ul>
                                 {{/if}}
-                            </div>
-
-                        </div> <!-- /timeline-block -->
-                    {{/each}}
-
-                </div> <!-- /timeline-wrap -->
-
-            </div> <!-- /col-twelve -->
-
-        </div> <!-- /resume-timeline -->
-    {{/if}}
-
-    {{#if resume.volunteer}}
-        <div class="row resume-timeline">
-
-
-            <div class="col-twelve resume-header">
-
-                <h2>Volunteer Work</h2>
-
-            </div> <!-- /resume-header -->
-
-            <div class="col-twelve">
-
-                <div class="timeline-wrap">
-
-                    {{#each resume.volunteer}}
-                        <div class="timeline-block">
-
-                            <div class="timeline-ico">
-                                <i class="fa fa-handshake-o"></i>
-                            </div>
-
-                            <div class="timeline-header">
-                                <h3>{{position}}</h3>
-                                <p>{{date startDate}} - {{date endDate}}</p>
-                            </div>
-
-                            <div class="timeline-content">
-                                <h4>{{organization}}</h4>
-                                <p>{{#markdown}}{{summary}}{{/markdown}}</p>
                             </div>
 
                         </div> <!-- /timeline-block -->
@@ -372,6 +336,46 @@
         </div> <!-- /resume-timeline -->
     {{/if}}
 
+    {{#if resume.certifications}}
+        <div class="row resume-timeline">
+
+            <div class="col-twelve resume-header">
+
+                <h2>Certifications</h2>
+
+            </div> <!-- /resume-header -->
+
+            <div class="col-twelve">
+
+                <div class="timeline-wrap">
+
+                    {{#each resume.certifications}}
+                        <div class="timeline-block">
+
+                            <div class="timeline-ico">
+                                <i class="fa fa-graduation-cap"></i>
+                            </div>
+
+                            <div class="timeline-header">
+                                <h3>{{area}}</h3>
+                                <p>{{date startDate}} - {{date endDate}}</p>
+                            </div>
+
+                            <div class="timeline-content">
+                                <h4>{{institution}}</h4>
+                                {{!-- <p>{{area}}</p> --}}
+                            </div>
+
+                        </div> <!-- /timeline-block -->
+                    {{/each}}
+
+                </div> <!-- /timeline-wrap -->
+
+            </div> <!-- /col-twelve -->
+
+        </div> <!-- /resume-timeline -->
+    {{/if}}
+
     {{#if resume.awards}}
         <div class="row resume-timeline">
 
@@ -399,6 +403,47 @@
 
                             <div class="timeline-content">
                                 <h4>{{awarder}}</h4>
+                                <p>{{#markdown}}{{summary}}{{/markdown}}</p>
+                            </div>
+
+                        </div> <!-- /timeline-block -->
+                    {{/each}}
+
+                </div> <!-- /timeline-wrap -->
+
+            </div> <!-- /col-twelve -->
+
+        </div> <!-- /resume-timeline -->
+    {{/if}}
+
+    {{#if resume.volunteer}}
+        <div class="row resume-timeline">
+
+
+            <div class="col-twelve resume-header">
+
+                <h2>Volunteer Work</h2>
+
+            </div> <!-- /resume-header -->
+
+            <div class="col-twelve">
+
+                <div class="timeline-wrap">
+
+                    {{#each resume.volunteer}}
+                        <div class="timeline-block">
+
+                            <div class="timeline-ico">
+                                <i class="fa fa-handshake-o"></i>
+                            </div>
+
+                            <div class="timeline-header">
+                                <h3>{{position}}</h3>
+                                <p>{{date startDate}} - {{date endDate}}</p>
+                            </div>
+
+                            <div class="timeline-content">
+                                <h4>{{organization}}</h4>
                                 <p>{{#markdown}}{{summary}}{{/markdown}}</p>
                             </div>
 
@@ -680,7 +725,7 @@
             <!--<p class="lead">-->
                 <!--Looking for an awesome and reliable webhosting? Try <a href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT"><span>DreamHost</span></a>.-->
                 <!--Get <span>$50 off</span> when you sign up with the promocode <span>styleshout</span>.-->
-                <!--&lt;!&ndash; Simply type	the promocode in the box labeled “Promo Code” when placing your order. &ndash;&gt;-->
+                <!--&lt;!&ndash; Simply type	the promocode in the box labeled "Promo Code" when placing your order. &ndash;&gt;-->
             <!--</p>-->
 
             <!--<div class="action">-->
@@ -1027,7 +1072,7 @@
 
             <!--<h5>Call Me At</h5>-->
 
-            <!--<p>Phone: (+63) 555 1212<br>-->
+            <!--<p>Phone: () 555 1212<br>-->
                 <!--Mobile: (+63) 555 0100<br>-->
                 <!--Fax: (+63) 555 0101-->
             <!--</p>-->

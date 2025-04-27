@@ -54,6 +54,10 @@ Handlebars.registerHelper('date', function(str) {
 	}
 });
 
+Handlebars.registerHelper('join', function(array, separator) {
+	return array.join(separator);
+});
+
 Handlebars.registerHelper('award', function(str) {
 	switch (str.toLowerCase()) {
 		case "bachelor":
