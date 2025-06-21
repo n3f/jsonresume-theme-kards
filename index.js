@@ -58,6 +58,10 @@ Handlebars.registerHelper('join', function(array, separator) {
 	return array.join(separator);
 });
 
+Handlebars.registerHelper('truncate', function(str, length) {
+	return str.substring(0, length);
+});
+
 Handlebars.registerHelper('award', function(str) {
 	switch (str.toLowerCase()) {
 		case "bachelor":
