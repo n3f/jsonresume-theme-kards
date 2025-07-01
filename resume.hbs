@@ -21,7 +21,7 @@
 
     <!-- Open Graph tags -->
     <meta property="og:title" content="Hire {{#resume.basics}}{{name}}{{/resume.basics}}. Let’s build something great." />
-    <meta property="og:description" content="{{#resume.basics}}{{summary}}{{/resume.basics}}" />
+    <meta property="og:description" content="{{#resume.basics}}{{unmark summary}}{{/resume.basics}}" />
     <meta property="og:image" content="{{#resume.basics}}{{og-picture}}{{/resume.basics}}" />
     <meta property="og:url" content="https://brentnef.com" />
     <meta property="og:type" content="website" />
@@ -29,7 +29,7 @@
     <!-- Twitter tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Hire {{#resume.basics}}{{name}}{{/resume.basics}}. Let’s build something great." />
-    <meta name="twitter:description" content="{{#resume.basics}}{{summary}}{{/resume.basics}}" />
+    <meta name="twitter:description" content="{{#resume.basics}}{{unmark summary}}{{/resume.basics}}" />
     <meta name="twitter:image" content="{{#resume.basics}}{{og-picture}}{{/resume.basics}}" />
     <meta name="twitter:url" content="https://brentnef.com" />
     <meta name="twitter:site" content="@brentnef" />
@@ -194,8 +194,9 @@
                             </div>
                             <strong>{{name}}</strong>
                             {{#if keywords}}
-                            <!-- render this as a popover -->
-                            <p alt="{{join keywords ", "}}">{{join keywords ", "}}</p>
+                            <div class="skill-keywords">
+                                <p alt="{{join keywords " • "}}">{{join keywords " • "}}</p>
+                            </div>
                             {{/if}}
                         </li>
                     {{/each}}
@@ -1150,6 +1151,13 @@
 </script>
 <script type="text/javascript">
     {{{mainJs}}}
+    // Intro Animation
+    jQuery(document).ready(function() {
+        setTimeout(function() {
+            // console.log('adding animate class tointro-content');
+            $('.intro-content').addClass('intro-animate');
+        }, 300);
+    });
 </script>
 
 </body>

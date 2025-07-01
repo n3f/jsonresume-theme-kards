@@ -29,6 +29,11 @@ Handlebars.registerHelper('markdown', function(str, locals, options) {
 		markup;
 });
 
+Handlebars.registerHelper('unmark', function(str) {
+	// String markdown formatting (for OG/Twitter cards) (e.g., **bold** -> bold)
+	return str.replace(/(\*\*|__)(.*?)\1/g, '$2');
+});
+
 Handlebars.registerHelper('displayUrl', function(str) {
 	return str.replace(/https?:\/\//, "");
 });
@@ -73,6 +78,9 @@ Handlebars.registerHelper('award', function(str) {
 });
 
 Handlebars.registerHelper('skillLevel', function(str) {
+	if (!str) {
+		return "100";
+	}
 	switch (str.toLowerCase()) {
 		case "beginner":
 			return "25";

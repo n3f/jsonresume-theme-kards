@@ -2541,7 +2541,29 @@ input::-moz-focus-inner {
   white-space: nowrap;
   font-family: "poppins-regular", sans-serif;
   overflow: hidden;
-  text-overflow: ellipsis;
+}
+.skill-bars p[alt] {
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+}
+.skill-bars .skill-keywords {
+  overflow: hidden;
+}
+.skill-bars .skill-keywords:hover p[alt] {
+  animation: marquee 8s linear infinite;
+  width: max-content;
+}
+@keyframes marquee {
+  2%,
+  97% {
+    transform: translateX(0%);
+  }
+  48%,
+  53% {
+    transform: translateX(-50%);
+  }
 }
 /**
  * ===================================================================
@@ -2940,6 +2962,24 @@ header .logo a {
 .intro-social li a:hover,
 .intro-social li a:focus {
   color: var(--darker-highlight-color);
+}
+/* Intro Animation Styles */
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.intro-animate {
+  animation: fadeInScale 1.2s ease-out forwards;
+}
+.intro-content {
+  opacity: 0;
+  transform: scale(0.8);
 }
 /**
  * responsive:
