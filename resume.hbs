@@ -1,8 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE html class="no-js">
 <!--[if IE 8 ]><html class="no-js oldie ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
 <head>
+    <script>
+        document.documentElement.className = 'js';
+        document.querySelector('.intro-content').classList.remove('intro-animate');
+    </script>
 
     <!--- basic page needs
     ================================================== -->
@@ -92,7 +96,7 @@
 
         <div class="intro-overlay"></div>
 
-        <div class="intro-content">
+        <div class="intro-content intro-animate">
             <div class="row">
 
                 <div class="col-twelve">
@@ -195,7 +199,11 @@
                             <strong>{{name}}</strong>
                             {{#if keywords}}
                             <div class="skill-keywords">
-                                <p alt="{{join keywords " • "}}">{{join keywords " • "}}</p>
+                                <p alt="{{join keywords " • "}}">
+                                    {{#each keywords~}}
+                                        {{{markdown .}}}{{#unless @last}} • {{/unless~}}
+                                    {{/each~}}
+                                </p>
                             </div>
                             {{/if}}
                         </li>

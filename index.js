@@ -60,6 +60,9 @@ Handlebars.registerHelper('date', function(str) {
 });
 
 Handlebars.registerHelper('join', function(array, separator) {
+	if (!array || !Array.isArray(array)) {
+		return '';
+	}
 	return array.join(separator);
 });
 
