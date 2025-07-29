@@ -2562,7 +2562,7 @@ input::-moz-focus-inner {
   }
   48%,
   53% {
-    transform: translateX(-50%);
+    transform: translateX(-70%);
   }
 }
 /**
